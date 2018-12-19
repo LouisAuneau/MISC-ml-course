@@ -28,7 +28,15 @@ X = [ones(m, 1) X];
 %       max element, for more information see 'help max'. If your examples 
 %       are in rows, then, you can use max(A, [], 2) to obtain the max 
 %       for each row.
-%       
+%
+
 [~, p] = max(sigmoid(X*all_theta'), [], 2);
+
+% all_theta: Matrix with our labels as lines, and our parameters for each features (the N pixels of a digit) as columns
+% X        : Matrix with our training example as rows (digits) and features (the N pixels of a digit) as columns
+%          -> X*all_theta'                     : Matrix with training examples as rows (digits) and sum of linear function θx for each label as columns. 
+%          -> sigmoid(X*all_theta')            : Matrix with training examples as rows (digits) and hypotesis computation for each label as columns.
+%          -> max(sigmoid(X*all_theta'), [], 2): Gives two lists of N values, which are the best hypotesis probability, and the id of its columns, for each training example. We only take the id, because it is the best matching label. 
+
 % =========================================================================
 end
